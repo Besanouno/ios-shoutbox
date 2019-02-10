@@ -1,7 +1,13 @@
-/* 
-  Localizable.strings
-  Lab2_TemplateApp
-
-  Created by marcinox on 10/02/2019.
-  Copyright © 2019 KIS AGH. All rights reserved.
-*/
+"error" = "Error";
+"error_downloading" = "Error while downloading data";
+"success" = "Success";
+"message_sent" = "Message has been sent successfully";
+"cancel" = "Cancel";
+"your_name" = "Your name";
+"your_message" = "Your message";
+"no_messages" = "No new messages";
+"new_messages_count" = " new messages";
+"new_message" = "New message";
+"fill_message_params" = "Please state your name and message";
+"send" = "Send";
+"message_timestamp" = "by %@, %@ hour(s), %@ minute(s) and %@ second(s) ago";

@@ -16,7 +16,7 @@ class MainTableViewController: UITableViewController {
         AF.request(self.source, method: .get).responseJSON { response in
             guard response.result.isSuccess,
                 let value = response.result.value else {
-                    self.showNotificationError(title: "Error", subtitle: "Error while downloading data")
+                    self.showNotificationError(title: "error".localized(), subtitle: "error_downloading".localized());
                     return
             }
             let dateFormatter = DateFormatter()
@@ -34,9 +34,9 @@ class MainTableViewController: UITableViewController {
             self.tableView.reloadData();
             let difference = self.records.count - self.recordsCount;
             if (difference > 0) {
-                self.showNotificationSuccess(title: difference.description + " new messages", subtitle: nil)
+                self.showNotificationSuccess(title: difference.description + "new_messages_count".localized(), subtitle: nil)
             } else {
-                self.showNotificationSuccess(title: "No new messages", subtitle: nil)
+                self.showNotificationSuccess(title: "no_messages".localized(), subtitle: nil)
             }
             self.recordsCount = self.records.count;
         };
@@ -52,14 +52,14 @@ class MainTableViewController: UITableViewController {
     }
     
     @IBAction func addMessage(_ sender: Any) {
-        let alertController = UIAlertController(title: "New message", message: "Please state your name ad message", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "new_message".localized(), message: "fill_message_params".localized(), preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Your name"
+            textField.placeholder = "your_name".localized();
         })
         alertController.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Your message"
+            textField.placeholder = "your_message".localized()
         })
-        let sendAction = UIAlertAction(title: "Send", style: .default, handler: { action in
+        let sendAction = UIAlertAction(title: "send".localized(), style: .default, handler: { action in
             let name = alertController.textFields?[0].text
             let message = alertController.textFields?[1].text
             let parameters: [String: String] = [
@@ -69,18 +69,18 @@ class MainTableViewController: UITableViewController {
             AF.request(self.source, method: .post, parameters: parameters).responseJSON { response in
                 guard response.result.isSuccess,
                     let value = response.result.value else {
-                        self.showNotificationError(title: "Error", subtitle: "Error while downloading data")
+                        self.showNotificationError(title: "error".localized(), subtitle: "error_downloading".localized());
                         return
                 }
                 let result = JSON(value)["result"];
                 if (result == "success") {
-                    self.showNotificationSuccess(title: "Success", subtitle: "Message has been sent successfully")
+                    self.showNotificationSuccess(title: "success".localized(), subtitle: "message_sent".localized());
                 }
                 
             };
         })
         alertController.addAction(sendAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in })
+        let cancelAction = UIAlertAction(title: "cancel".localized(), style: .cancel, handler: { _ in })
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true)
     }
@@ -108,7 +108,7 @@ class MainTableViewController: UITableViewController {
             let sender = record.name;
             let timestamp = record.timestamp!
             let components = Calendar.current.dateComponents([.hour, .minute, .second], from: timestamp, to: Date())
-            let metadata = "by \(sender), \(components.hour!) hour(s), \(components.minute!) minute(s) and \(components.second!) second(s) ago"
+            let metadata = String(format: NSLocalizedString("message_timestamp", comment: ""), sender, components.hour!.description, components.minute!.description, components.second!.description);
             cell.textLabel!.text = message
             cell.detailTextLabel!.text = metadata
         }
