@@ -33,11 +33,7 @@ class MainTableViewController: UITableViewController {
             self.records = self.records.sorted(by: {($0.timestamp!).compare($1.timestamp!) == .orderedDescending})
             self.tableView.reloadData();
             let difference = self.records.count - self.recordsCount;
-            if (difference > 0) {
-                self.showNotificationSuccess(title: difference.description + "new_messages_count".localized(), subtitle: nil)
-            } else {
-                self.showNotificationSuccess(title: "no_messages".localized(), subtitle: nil)
-            }
+            self.showNotificationSuccess(title: String(format: "new_messages_%d".localized(), difference), subtitle: nil)
             self.recordsCount = self.records.count;
         };
     }
