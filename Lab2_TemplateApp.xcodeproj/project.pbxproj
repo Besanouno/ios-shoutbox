@@ -13,6 +13,7 @@
 		92A4822C21E87C84008C5F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A4822B21E87C84008C5F15 /* Assets.xcassets */; };
 		92A4822F21E87C84008C5F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A4822D21E87C84008C5F15 /* LaunchScreen.storyboard */; };
 		92A4823721E87CA4008C5F15 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A4823621E87CA4008C5F15 /* MainTableViewController.swift */; };
+		E88599C42210E0A50048CA38 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E88599C62210E0A50048CA38 /* Localizable.strings */; };
 		F3F609BDD476DB17EC77C572 /* Pods_Lab2_TemplateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6608EC42F7928AE22AB71640 /* Pods_Lab2_TemplateApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		92A4823021E87C84008C5F15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92A4823621E87CA4008C5F15 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		BACB85CB8BCDE6BBF7EADA0E /* Pods-Lab2_TemplateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lab2_TemplateApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lab2_TemplateApp/Pods-Lab2_TemplateApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E88599C52210E0A50048CA38 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				92A4822D21E87C84008C5F15 /* LaunchScreen.storyboard */,
 				92A4823021E87C84008C5F15 /* Info.plist */,
 				3FBEA84121E8A8B500724907 /* Record.swift */,
+				E88599C62210E0A50048CA38 /* Localizable.strings */,
 			);
 			path = Lab2_TemplateApp;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A4822F21E87C84008C5F15 /* LaunchScreen.storyboard in Resources */,
+				E88599C42210E0A50048CA38 /* Localizable.strings in Resources */,
 				92A4822C21E87C84008C5F15 /* Assets.xcassets in Resources */,
 				92A4822A21E87C84008C5F15 /* Main.storyboard in Resources */,
 			);
@@ -238,6 +242,14 @@
 				92A4822E21E87C84008C5F15 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E88599C62210E0A50048CA38 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E88599C52210E0A50048CA38 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -16,7 +16,7 @@ class MainTableViewController: UITableViewController {
         AF.request(self.source, method: .get).responseJSON { response in
             guard response.result.isSuccess,
                 let value = response.result.value else {
-                    print("Error while downloading data");
+                    self.showNotificationError(title: "Error", subtitle: "Error while downloading data")
                     return
             }
             let dateFormatter = DateFormatter()
@@ -34,9 +34,9 @@ class MainTableViewController: UITableViewController {
             self.tableView.reloadData();
             let difference = self.records.count - self.recordsCount;
             if (difference > 0) {
-                self.showNotificationBanner(title: difference.description + " new messages", subtitle: nil)
+                self.showNotificationSuccess(title: difference.description + " new messages", subtitle: nil)
             } else {
-                self.showNotificationBanner(title: "No new messages", subtitle: nil)
+                self.showNotificationSuccess(title: "No new messages", subtitle: nil)
             }
             self.recordsCount = self.records.count;
         };
@@ -69,12 +69,12 @@ class MainTableViewController: UITableViewController {
             AF.request(self.source, method: .post, parameters: parameters).responseJSON { response in
                 guard response.result.isSuccess,
                     let value = response.result.value else {
-                        print("Error while downloading data");
+                        self.showNotificationError(title: "Error", subtitle: "Error while downloading data")
                         return
                 }
                 let result = JSON(value)["result"];
                 if (result == "success") {
-                    self.showNotificationBanner(title: "Success", subtitle: "Message has been sent successfully")
+                    self.showNotificationSuccess(title: "Success", subtitle: "Message has been sent successfully")
                 }
                 
             };
@@ -104,7 +104,6 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoutboxItem", for: indexPath)
         if indexPath.section == 0 {
             let record = self.records[indexPath.row]
-            print(record.message);
             let message = record.message;
             let sender = record.name;
             let timestamp = record.timestamp!
@@ -116,9 +115,17 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
-    private func showNotificationBanner(title: String, subtitle: String?) {
+    private func showNotificationSuccess(title: String, subtitle: String?) {
         let banner = Banner(title: title, subtitle: subtitle, image: nil, backgroundColor: UIColor(red:48.00/255.0, green:174.0/255.0, blue:51.5/255.0, alpha:1.000))
         banner.dismissesOnTap = true
         banner.show(duration: 2.0)
     }
+    
+    private func showNotificationError(title: String, subtitle: String?) {
+        let banner = Banner(title: title, subtitle: subtitle, image: nil, backgroundColor: UIColor(red:200.0/255.0, green:0/255.0, blue:0.0/255.0, alpha:1.000))
+        banner.dismissesOnTap = true
+        banner.show(duration: 2.0)
+    }
+    
+    
 }
