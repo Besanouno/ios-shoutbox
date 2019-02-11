@@ -5,17 +5,21 @@
 	<key>new_messages_%d</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@count@ new messages</string>
+		<string>%#@count@ </string>
 		<key>count</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>d</string>
-			<key>other</key>
-			<string>%d</string>
 			<key>zero</key>
-			<string>No</string>
+			<string>Brak nowych wiadomosci</string>
+			<key>one</key>
+			<string>1 nowa wiadomosc</string>
+			<key>few</key>
+			<string>%d nowe wiadomosci</string>
+			<key>other</key>
+			<string>%d nowych wiadomosci</string>
 		</dict>
 	</dict>
 </dict>

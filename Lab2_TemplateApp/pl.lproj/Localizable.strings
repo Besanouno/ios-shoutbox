@@ -1,0 +1,11 @@
+"error" = "Błąd";
+"error_downloading" = "Wystąpił błąd podczas pobierania danych";
+"success" = "Sukces";
+"message_sent" = "Wiadomość została wysłana poprawnie";
+"cancel" = "Anuluj";
+"your_name" = "Twoje imię";
+"your_message" = "Twoja wiadomość";
+"new_message" = "Nowa wiadomość";
+"fill_message_params" = "Dodaj swoje imię oraz wiadomość";
+"send" = "Wyślij";
+"message_timestamp" = "od: %@, %@ godzin(y), %@ minut(y) i %@ sekund(y) temu";
